@@ -7,9 +7,8 @@ module.exports = {
 
   },
   assets:[
-    './assets/RobotoSlab-Medium',
-    './assets/RobotoSlab-Regular'
+    './assets/fonts',
+
   ],
 
 };
-
