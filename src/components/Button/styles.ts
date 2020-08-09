@@ -9,7 +9,7 @@ background:#ff9000;
 border-radius:10px;
 margin-top:8px;
 justify-content:center;
-align-items:center
+align-items:center;
 
 `;
 
