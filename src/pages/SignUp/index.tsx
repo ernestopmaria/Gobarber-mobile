@@ -1,6 +1,7 @@
 import React from 'react';
 import {Image, ScrollView, KeyboardAvoidingView, Platform, View} from 'react-native';
-import Icon from 'react-native-vector-icons/Feather'
+import Icon from 'react-native-vector-icons/Feather';
+import {useNavigation} from '@react-navigation/native'
 
 import Input from '../../components/Input/index';
 import Button from '../../components/Button/index';
@@ -10,6 +11,8 @@ import logoImg from '../../assets/logo.png'
 import {Container, Title, BackToSignIn, BackToSignInText} from './styles';
 
 const SignUp : React.FC =()=>{
+
+  const navigation = useNavigation();
 
   return(
     <>
@@ -34,7 +37,7 @@ const SignUp : React.FC =()=>{
       </ScrollView>
     </KeyboardAvoidingView>
 
-    <BackToSignIn>
+    <BackToSignIn onPress={() => navigation.goBack()}>
       <Icon name ="arrow-left" size={20} color="#f4ede8"/>
       <BackToSignInText>Voltar para o logon</BackToSignInText>
     </BackToSignIn>

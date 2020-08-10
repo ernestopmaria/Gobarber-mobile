@@ -1,5 +1,6 @@
 import React from 'react';
 import {TextInputProps} from 'react-native';
+import {useField} from '@unform/core';
 
 import {Container, TextInput, Icon } from './styles'
 
@@ -9,14 +10,16 @@ interface InputProps extends TextInputProps{
   icon: string;
 }
 
-const Input: React.FC<InputProps> =({name, icon, ...rest})=>(
+const Input: React.FC<InputProps> =({name, icon, ...rest})=>{
 
-  <Container>
+    const {registerField, defaultValue, fieldName, error} = useField(name);
+
+ return ( <Container>
     <Icon name={icon} size={20} color ="#666360" />
     <TextInput keyboardAppearance="dark" placeholderTextColor="#666360"  {...rest}/>
-  </Container>
+  </Container>)
 
-)
+}
 
 
 export default Input;
