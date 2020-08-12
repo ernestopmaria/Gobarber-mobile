@@ -1,9 +1,10 @@
 import React , {useCallback, useRef}from 'react';
 import * as Yup from 'yup';
 import {Image, ScrollView, KeyboardAvoidingView,
-   Platform, View, TextInput, Alert} from 'react-native';
+Platform, View, TextInput, Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-import { useNavigation} from '@react-navigation/native'
+import { useNavigation} from '@react-navigation/native';
+import {useAuth} from '../../hooks/auth'
 
 import Input from '../../components/Input/index';
 import Button from '../../components/Button/index';
@@ -20,7 +21,7 @@ import {Container, Title, ForgotPassword, ForgotPasswordText,
 
    interface SignInFormData{
      email: string;
-     senha: string;
+     password: string;
    }
 
 const SignIn : React.FC =()=>{
@@ -29,6 +30,9 @@ const SignIn : React.FC =()=>{
   const passwordInputRef = useRef<TextInput>(null);
 
   const navigation = useNavigation();
+
+  const {signIn, user} = useAuth();
+
 
   const handleSignIn = useCallback(
     async (data: SignInFormData) => {
@@ -42,11 +46,11 @@ const SignIn : React.FC =()=>{
         });
         await schema.validate(data, { abortEarly: false });
 
-        /*await signIn({
+        await signIn({
           email: data.email,
           password: data.password,
         });
-        history.push('/dashboard');*/
+
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
@@ -59,7 +63,7 @@ const SignIn : React.FC =()=>{
 
       }
     },
-    [],
+    [signIn],
   );
 
   return(
