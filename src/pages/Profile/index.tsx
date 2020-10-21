@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, {useRef, useCallback} from 'react';
 import {ScrollView, KeyboardAvoidingView, Platform, View, TextInput, Alert} from 'react-native';
 import *as Yup from 'yup';
@@ -8,13 +7,11 @@ import {Form} from '@unform/mobile';
 import {FormHandles} from '@unform/core';
 import Icon from 'react-native-vector-icons/Feather';
 import ImagePicker from 'react-native-image-picker';
-=======
-import React from 'react';
-import {View} from 'react-native';
->>>>>>> parent of 4f24915... update
 
+import Input from '../../components/Input/index';
+import Button from '../../components/Button/index';
+import getValidationErrors from '../../utils/getValidationErrors';
 
-<<<<<<< HEAD
 import {Container, BackButton, Title, UserAvatarButton, UserAvatar} from './styles';
 import { useAuth } from '../../hooks/auth';
 
@@ -106,9 +103,6 @@ const {user, updateUser} = useAuth()
     },
     [navigation, updateUser],
   );
-=======
-const Profile: React.FC =()=> {
->>>>>>> parent of 4f24915... update
 
   const handleUpdateAvatar = useCallback(()=>{
     ImagePicker.showImagePicker({
@@ -138,7 +132,6 @@ const Profile: React.FC =()=> {
     });
   },[updateUser, user.id]);
   return(
-<<<<<<< HEAD
     <>
     <KeyboardAvoidingView style={{ flex:1}}
      behavior={Platform.OS == 'ios' ? "padding" : undefined} enabled>
@@ -203,11 +196,7 @@ const Profile: React.FC =()=> {
       </ScrollView>
     </KeyboardAvoidingView>
     </>
-=======
-  <View/>
->>>>>>> parent of 4f24915... update
   )
 }
 
-
-export default Profile;
+export default SignUp;
